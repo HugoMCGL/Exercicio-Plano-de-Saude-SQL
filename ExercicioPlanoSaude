@@ -1,0 +1,43 @@
+--create database exercicio_plano_saude
+
+create table cliente (
+	id int primary key,
+	nome varchar(100), 
+	email varchar(50),
+	nascimento date,
+	dependentes int
+	)
+	
+create table produto(
+id_registro int primary key,
+descricao varchar (100),
+valor money
+)
+
+create table itens_produto(
+id int primary key,
+produto_id int references produto(id_registro),
+quantidade int
+)
+
+create table contrato(
+	id int primary key,
+	cliente_id int references cliente(id),
+	itens_produto_id int references itens_produto(id),
+	data_inicio date
+)
+
+insert into cliente (id, nome, email, nascimento, dependentes) values(1,'Hugo Marques', 'hugomarquescgl@gmail.com', '1999-08-17', 2)
+insert into cliente (id, nome, email, nascimento, dependentes) values(2,'Luiza', 'luiza@gmail.com', '2000-09-28', 0)
+insert into cliente (id, nome, email, nascimento, dependentes) values(3,'Humberto', 'humberto@gmail.com', '1974-06-29', 2)
+insert into cliente (id, nome, email, nascimento, dependentes) values(4,'Barbara', 'barbara@gmail.com', '1975-07-12', 1)
+
+
+
+select * from cliente
+
+
+
+
+
+					
